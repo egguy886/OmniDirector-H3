@@ -1,0 +1,31 @@
+{
+  "project": "Crossing_the_Line",
+  "season": "S01",
+  "timezone": "Asia/Shanghai",
+  "discount_window": {
+    "start": "00:01:00",
+    "cutoff": "08:00:00"
+  },
+  "episodes": {
+    "E01": {
+      "H3-01": {
+        "status": "COMPLETED",
+        "task_id": "comfy_task_8923011",
+        "submitted_at": "2026-09-14T00:01:12+08:00",
+        "completed_at": "2026-09-14T00:05:43+08:00",
+        "video_path": "outputs/E01/E01_H3-01.mp4",
+        "qc_passed": true,
+        "tail_relay_ready": true
+      },
+      "H3-02": {
+        "status": "COMPLETED",
+        "task_id": "comfy_task_8923012",
+        "submitted_at": "2026-09-14T00:05:48+08:00",
+        "completed_at": "2026-09-14T00:10:21+08:00",
+        "video_path": "outputs/E01/E01_H3-02.mp4",
+        "qc_passed": true,
+        "tail_relay_ready": true
+      }
+    }
+  }
+}
