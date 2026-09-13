@@ -44,7 +44,7 @@
 ### 1. 视觉资产生成策略 (Visual Assets)
 * 🌟 **首选主推 (Primary Recommended)**：在 **Codex** 中调用 **`imagegem`** 生成。
   * *深度优势*：与 AI Agent 提示词上下文原生协同，生成的人物三视图、45° 侧颜及物理受光极度严谨，肤质纹理真实自然，彻底杜绝塑料 CG 质感。
-* 🥈 **次选推荐 (Secondary Recommended)**：**`nanonanana`**。
+* 🥈 **次选推荐 (Secondary Recommended)**：**`nanobanana`**。
   * *适用场景*：适合作为高概念场景空镜、复杂道具质感与特定影视风格参考图的补充工具。
 * **交付硬指标**：
   * **人物参考图**：中立微表情正面 + 45° 侧脸 + 全身服装锁定照；

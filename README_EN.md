@@ -44,7 +44,7 @@ To guarantee reliable character face locks, lighting continuity, and vocal timin
 ### 1. Visual Asset Generation Strategy
 * 🌟 **Primary Recommended**: Invoke **`imagegem`** inside **Codex**.
   * *Rationale*: Natively synergistic with AI agent prompt engineering. Produces mathematically grounded 3-view character references, 45° profile turns, and authentic skin textures without plastic CG artifacts.
-* 🥈 **Secondary Recommended**: **`nanonanana`**.
+* 🥈 **Secondary Recommended**: **`nanobanana`**.
   * *Use Case*: Ideal for high-concept empty background environments, complex prop textures, and cinematic visual styling moodboards.
 * **Key Visual Criteria**:
   * **Characters**: Neutral micro-expression front + 45° turn + full-body wardrobe anchor;

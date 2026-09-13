@@ -6,7 +6,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Target Model: MiniMax H3](https://img.shields.io/badge/Target%20Model-MiniMax%20H3%20Multimodal-orange.svg)](https://www.minimaxi.com/)
-[![Visual: imagegem in Codex | nanonanana](https://img.shields.io/badge/Visual%20Assets-imagegem%20(Codex)%20%7C%20nanonanana-purple.svg)](#-visual--audio-asset-directives--视觉与音频资产工程规范)
+[![Visual: imagegem in Codex | nanobanana](https://img.shields.io/badge/Visual%20Assets-imagegem%20(Codex)%20%7C%20nanobanana-purple.svg)](#-visual--audio-asset-directives--视觉与音频资产工程规范)
 [![Audio: 32kHz Dry WAV | No Generator Bias](https://img.shields.io/badge/Audio%20Assets-32kHz%20Dry%20WAV%20%7C%20Open%20Choice-blue.svg)](#-visual--audio-asset-directives--视觉与音频资产工程规范)
 [![Agents: Claude | Codex | Antigravity](https://img.shields.io/badge/Agents-Claude%20Code%20%7C%20Codex%20%7C%20Antigravity-blueviolet.svg)](./AGENTS.md)
 [![Screenplay: Mode A & Mode B](https://img.shields.io/badge/Screenplay-Mode%20A%20Domestic%20%7C%20Mode%20B%20Global-red.svg)](#-the-dual-production-modes-mode-a--mode-b)
@@ -59,7 +59,7 @@ MiniMax H3 具备强大的原生多模态时序理解与音画协同能力，但
 ### 1. 视觉资产生成策略 (Visual Assets)
 * 🌟 **首选主推 (Primary Recommended)**：在 **Codex** 中调用 **`imagegem`** 生成。
   * *原因*：深度结合智能体提示词上下文，生成的人物三视图、45° 侧颜及物理光源极度严谨，肤质写实自然，彻底告别廉价塑料 AI 感。
-* 🥈 **次选推荐 (Secondary Recommended)**：**`nanonanana`**。
+* 🥈 **次选推荐 (Secondary Recommended)**：**`nanobanana`**。
   * *原因*：适合作为高概念场景空镜、极端道具材质与视觉风格概念图的补充生成工具。
 * **资产交付标准**：
   * **人物**：中立微表情正面 + 45° 侧脸 + 全身服装锁定照；
@@ -104,7 +104,7 @@ flowchart TD
     end
 
     subgraph Tier2["Tier 2: 3D空间调度与资产校验 (Spatial Blocking & Assets)"]
-        E --> F["视觉资产筹备 (主推 Codex imagegem / 次选 nanonanana)"]
+        E --> F["视觉资产筹备 (主推 Codex imagegem / 次选 nanobanana)"]
         F --> G["音频资产标准接入 (32kHz 纯干音 WAV / 生成工具不做推荐)"]
         G --> H[无头 Blender 3D 代理空间搭建]
         H --> I["180° 动作轴线死守 & 24fps 物理运动预算分配"]
@@ -163,7 +163,7 @@ OmniDirector-H3/
 │   └── 03_h3_prompt_compiler/         # H3 提示词编译：MiniMax 官方规范、时间戳与标签标准
 │
 ├── templates/                         # 工业生产标准模板库
-│   ├── asset_production_spec.md       # 视觉资产 (imagegem/nanonanana) 与音频资产 (32kHz) 规范
+│   ├── asset_production_spec.md       # 视觉资产 (imagegem/nanobanana) 与音频资产 (32kHz) 规范
 │   ├── screenplay_spec_a_domestic_template.md  # Mode A 国内微短剧标准剧本模板
 │   ├── screenplay_spec_b_template.md           # Mode B 出海微短剧双模剧本模板
 │   ├── h3_prompt_template.md                   # MiniMax H3 官方 15 秒多模态提示词模板

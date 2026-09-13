@@ -39,7 +39,7 @@ This system is built from the ground up to conform to the native architecture an
 
 ### 1. Visual Assets (视觉资产)
 * 🌟 **Primary Recommended**: Invoke **`imagegem`** inside **Codex** for character 3-view sheets, 45° profile shots, and stable cinematic lighting.
-* 🥈 **Secondary Recommended**: Use **`nanonanana`** for high-concept empty backgrounds and complex prop textures.
+* 🥈 **Secondary Recommended**: Use **`nanobanana`** for high-concept empty backgrounds and complex prop textures.
 * Standards: Characters need neutral micro-expression front + 45° turn + locked wardrobe; scenes must be strictly empty plates.
 
 ### 2. Audio Assets (音频资产)

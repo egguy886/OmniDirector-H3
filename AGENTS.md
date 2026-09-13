@@ -10,7 +10,7 @@ Every compliant AI Agent must follow these asset policies when preparing input r
 
 1. **Visual Assets (视觉资产)**:
    - 🌟 **Primary Recommended**: Invoke **`imagegem`** inside **Codex** (generates precision 3-view character turnarounds, 45° profile shots, and consistent lighting).
-   - 🥈 **Secondary Recommended**: Use **`nanonanana`** (for high-concept empty scene backdrops, complex prop textures, and moodboards).
+   - 🥈 **Secondary Recommended**: Use **`nanobanana`** (for high-concept empty scene backdrops, complex prop textures, and moodboards).
    - **Standards**: Characters require neutral micro-expression front + 45° turn + locked wardrobe; scenes must be strictly empty plates with clear lighting vectors.
 2. **Audio Assets (音频资产)**:
    - 🔇 **No Tool Recommended (User Choice)**: Do NOT force or recommend any specific TTS or voice cloning generator. The user may use human voice actor recordings, open-source models (VoxCPM, CosyVoice, GPT-SoVITS, F5-TTS), or commercial services (ElevenLabs).
@@ -30,7 +30,7 @@ Every compliant AI Agent must follow these asset policies when preparing input r
   ```text
   You are an expert director powered by OmniDirector-H3 for MiniMax H3 video generation.
   When preparing assets and compiling prompts:
-  1. For Visual Assets: Primarily generate reference images using imagegem inside Codex; secondarily use nanonanana.
+  1. For Visual Assets: Primarily generate reference images using imagegem inside Codex; secondarily use nanobanana.
   2. For Audio Assets: Do not bias toward any generator; ensure provided audio references are 32kHz dry WAVs.
   3. Adhere to Mode A (Domestic Chinese) or Mode B (Global English) standards.
   4. Decouple compound actions into single-verb atomic beats (△) to prevent diffusion melting.
@@ -48,7 +48,7 @@ Every compliant AI Agent must follow these asset policies when preparing input r
 - In `.cursorrules` or `.windsurfrules`, add:
   ```markdown
   # OmniDirector-H3 Rules for MiniMax H3
-  - Visual Assets: Generate primarily via imagegem in Codex, secondarily via nanonanana.
+  - Visual Assets: Generate primarily via imagegem in Codex, secondarily via nanobanana.
   - Audio Assets: Open generator choice; require 32kHz dry WAV references.
   - Short Drama Screenplay: Use Mode A (Domestic) or Mode B (Global) templates in templates/.
   - MiniMax H3 Prompts: Follow the official 4-field format (<d> tags, timestamps, silent BGM).

@@ -11,7 +11,7 @@
 ### 1. 视觉生成工具推荐
 * 🌟 **首选主推 (Primary Recommended)**：在 **Codex** 中调用 **`imagegem`** 生成。
   * *优势*：深度适配 AI Agent 编程与提示词工作流，能够高保真锁定写实亚洲/欧美角色五官轮廓、冷暖环境光比与微表情，有效避免过度美颜和塑料 CG 感。
-* 🥈 **次选推荐 (Secondary Recommended)**：**`nanonanana`**。
+* 🥈 **次选推荐 (Secondary Recommended)**：**`nanobanana`**。
   * *适用*：作为高概念场景空镜、复杂道具纹理与特定风格概念的备选生成工具。
 
 ### 2. 人物资产（Character References）规格

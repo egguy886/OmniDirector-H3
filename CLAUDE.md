@@ -9,7 +9,7 @@ This document configures **Claude Code** (and Anthropic Claude Projects) to oper
 When Claude Code is invoked within this repository or on a short drama task:
 1. **Target Model**: Always target **MiniMax H3** multimodal foundation model standards.
 2. **Visual & Audio Asset Rules**:
-   - **Visual Assets**: Primarily recommend generating character and scene reference assets using **`imagegem`** inside Codex; secondarily recommend **`nanonanana`**.
+   - **Visual Assets**: Primarily recommend generating character and scene reference assets using **`imagegem`** inside Codex; secondarily recommend **`nanobanana`**.
    - **Audio Assets**: Do **NOT** recommend any specific voice generator or TTS tool. Accept any user-provided 32kHz Mono lossless WAV dry voice.
 3. **Choose Screenplay Mode**:
    - **Mode A**: Domestic Chinese micro-dramas (抖音/快手/番茄/红果). All Chinese action lines (`△`) and natural Chinese spoken dialogue.
