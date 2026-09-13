@@ -34,7 +34,26 @@ Empirical testing reveals that legacy custom "6-module" Chinese formats dilute d
 
 ---
 
-## 3. Tri-Tier Core Intelligence Pipeline
+## 3. Multi-Platform AI Agent Integration (Claude Code / Codex / Antigravity)
+
+OmniDirector-H3 natively supports major AI programming assistants and autonomous agent frameworks out of the box:
+
+### 1. Anthropic Claude (Claude Code & Claude Projects)
+* Natively configured via [`CLAUDE.md`](./CLAUDE.md) in the project root. Claude Code automatically loads all director directives upon initialization.
+* For Claude Projects, import [`SKILL.md`](./SKILL.md) directly as your system prompt.
+
+### 2. OpenAI Codex & ChatGPT Assistants
+* Use the system prompt definitions in [`AGENTS.md`](./AGENTS.md) to instruct Codex to enforce Mode A/B standards and MiniMax H3 4-field prompt compilation.
+
+### 3. Google Antigravity (AGY) / Gemini CLI
+* Drop the repository into `.agents/skills/omni-director-h3/` or `~/.gemini/config/skills/`. The root [`SKILL.md`](./SKILL.md) is automatically registered as a recognized Skill.
+
+### 4. Cursor / Windsurf / Cline / Roo Code
+* Reference [`AGENTS.md`](./AGENTS.md) inside `.cursorrules` or `.windsurfrules` for real-time prompt syntax audits directly inside your IDE.
+
+---
+
+## 4. Tri-Tier Core Intelligence Pipeline
 
 OmniDirector-H3's core responsibility is **compiling literary narrative into 100% compliant, failure-proof MiniMax H3 prompt packets and continuity matrices**.
 
@@ -59,7 +78,7 @@ OmniDirector-H3's core responsibility is **compiling literary narrative into 100
 
 ---
 
-## 4. The Dual Production Modes (Mode A & Mode B)
+## 5. The Dual Production Modes (Mode A & Mode B)
 
 | Dimension | Mode A: Domestic Chinese Standard | Mode B: Global Streaming Standard |
 |---|---|---|
@@ -71,7 +90,7 @@ OmniDirector-H3's core responsibility is **compiling literary narrative into 100
 
 ---
 
-## 5. Flexible Execution: The User's Choice
+## 6. Flexible Execution: The User's Choice
 
 Once OmniDirector-H3 delivers your verified, 0-error prompt packet, you have complete freedom in choosing your MiniMax H3 generation environment:
 1. **MiniMax Official Creative Web UI**: Copy and paste prompt segments directly into the official web studio.
@@ -81,7 +100,7 @@ Once OmniDirector-H3 delivers your verified, 0-error prompt packet, you have com
 
 ---
 
-## 6. Quick Start in 5 Minutes
+## 7. Quick Start in 5 Minutes
 
 ```bash
 # 1. Clone repository
@@ -103,5 +122,5 @@ blender --background --python tools/blender_proxy_previz.py -- --episode E01 --r
 
 ---
 
-## 7. License
+## 8. License
 This project is open-sourced under the **MIT License**.

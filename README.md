@@ -1,18 +1,25 @@
 <div align="center">
 
 # 🎬 OmniDirector-H3 (全知导演 H3)
+### *专为 MiniMax H3 打造的微短剧剧作重构、3D空间预演与工业级多模态编译系统*
 ### *The Industrial Screenplay-to-Video Production Engine Specially Engineered for MiniMax H3*
-### *专为 MiniMax H3 打造的工业级短剧剧作重构 · 3D空间预演 · 动力学解耦 · 官方多模态编译系统*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Target Model: MiniMax H3](https://img.shields.io/badge/Target%20Model-MiniMax%20H3%20Multimodal-orange.svg)](https://www.minimaxi.com/)
-[![Mode A: Domestic Chinese](https://img.shields.io/badge/Screenplay-Mode%20A%20Domestic%20%7C%20Mode%20B%20Global-red.svg)](#-the-dual-production-modes-mode-a--mode-b)
+[![Agents: Claude | Codex | Antigravity](https://img.shields.io/badge/Agents-Claude%20Code%20%7C%20Codex%20%7C%20Antigravity-blueviolet.svg)](./AGENTS.md)
+[![Screenplay: Mode A & Mode B](https://img.shields.io/badge/Screenplay-Mode%20A%20Domestic%20%7C%20Mode%20B%20Global-red.svg)](#-the-dual-production-modes-mode-a--mode-b)
 [![Previz: Blender 3D](https://img.shields.io/badge/Previz-Blender%205.x%20%7C%204.x-E87D0D.svg)](https://www.blender.org/)
-[![Status: Production Ready](https://img.shields.io/badge/Status-Battle%20Tested%20(0%20Syntax%20Errors)-purple.svg)](#)
+[![Status: Production Ready](https://img.shields.io/badge/Status-0%20Syntax%20Errors-brightgreen.svg)](#)
 
 ---
 
-[📖 English Documentation (README_EN.md)](./README_EN.md) ｜ [🇨🇳 中文完整技术白皮书 (README_CN.md)](./README_CN.md) ｜ [🤖 Skill Spec (SKILL.md)](./SKILL.md)
+**About / 简介**：
+专为 MiniMax H3 打造的微短剧剧作重构、3D空间预演与工业级多模态编译系统。根除视频大模型肢体融化、镜头越轴跳戏与违禁词误杀，自动化交付电影级分镜提示词与连续性矩阵。
+*An industrial-grade screenplay-to-video production pipeline specifically engineered for MiniMax H3. Eliminates diffusion melting, enforces 3D spatial continuity, and compiles broadcast-grade multimodal prompt packets across domestic and global short drama platforms.*
+
+---
+
+[📖 English Docs (README_EN.md)](./README_EN.md) ｜ [🇨🇳 中文技术白皮书 (README_CN.md)](./README_CN.md) ｜ [🤖 Multi-Agent Guide (AGENTS.md)](./AGENTS.md) ｜ [🟣 Claude Code Spec (CLAUDE.md)](./CLAUDE.md)
 
 </div>
 
@@ -27,7 +34,8 @@
 而 **OmniDirector（全知导演）** 代表着一种**全维度、全流程掌控的电影工业级总导演体系**：
 1. **全模态统筹（Omni-Dimensional）**：将剧作文学、3D 空间几何、24fps 动作动力学、微表情生理体感与 Foley 拟音五维合一；
 2. **全场景兼容（Omni-Market）**：原生同时支持 **Mode A（国内中文微短剧）** 与 **Mode B（出海短剧双模标准）**；
-3. **全周期连续（Omni-Consistent）**：死守 180° 摄影轴线、道具损伤状态机与 `TAIL_RELAY` 尾帧接力合同，确保多集长视频跨段落永不漂移。
+3. **全周期连续（Omni-Consistent）**：死守 180° 摄影轴线、道具损伤状态机与 `TAIL_RELAY` 尾帧接力合同，确保多集长视频跨段落永不漂移；
+4. **全平台智能体适配（Omni-Agent）**：原生无缝集成 **Claude Code**、**OpenAI Codex**、**Google Antigravity** 与 **Cursor / Windsurf / Cline**。
 
 ---
 
@@ -43,9 +51,26 @@ MiniMax H3 具备强大的原生多模态时序理解与音画协同能力，但
 
 ---
 
-## 🏛️ Tri-Tier Core Intelligence Pipeline / 工业三阶全流程智能引擎
+## 🤖 Multi-Platform AI Agent Integration / 多平台智能体适配
 
-本系统的核心使命是：**将任何文学故事转化为 100% 符合 MiniMax H3 底层注意力机制、通过确定性语法审计、且镜头空间与动作连续性闭环的高标准生产包。**
+OmniDirector-H3 原生支持主流 AI 编程助手与自主智能体平台，开箱即用：
+
+### 1. Anthropic Claude (Claude Code / Claude Projects)
+* 仓库根目录下内置 **[`CLAUDE.md`](./CLAUDE.md)**，Claude Code 启动时自动读取所有导演工作流与验证规范。
+* 在 Claude Projects 中，可直接引入 `SKILL.md` 作为项目系统提示词。
+
+### 2. OpenAI Codex & ChatGPT
+* 参考 **[`AGENTS.md`](./AGENTS.md)** 中的 Codex 系统指令，直接指示 Codex 按照 Mode A/B 规范与 H3 四字段语法自动化生成脚本与分镜。
+
+### 3. Google Antigravity (AGY) / Gemini CLI
+* 直接将本项目放入 `.agents/skills/omni-director-h3/` 或 `~/.gemini/config/skills/`，根目录的 **[`SKILL.md`](./SKILL.md)** 会被自动注册为系统内置 Skill。
+
+### 4. Cursor / Windsurf / Cline / Roo Code
+* 在 `.cursorrules` 中引入 `AGENTS.md` 规则，即可在 IDE 中让 AI 实时进行剧本动力学解耦与提示词语法合规校验。
+
+---
+
+## 🏛️ Tri-Tier Core Intelligence Pipeline / 工业三阶全流程智能引擎
 
 ```mermaid
 flowchart TD
@@ -89,8 +114,6 @@ flowchart TD
 
 ## 🎭 The Dual Production Modes (Mode A & Mode B)
 
-OmniDirector-H3 针对不同发行渠道，提供两种深度优化的创作规范：
-
 | 维度 / Mode | Mode A：国内中文微短剧标准 | Mode B：出海微短剧双模标准 |
 |---|---|---|
 | **目标平台** | 抖音、快手、微信视频号、番茄短剧、红果短剧、爱奇艺微视 | ReelShort、DramaBox、ShortMax、TikTok、ShortWave |
@@ -123,18 +146,14 @@ OmniDirector-H3/
 ├── README_CN.md                       # 中文完整技术白皮书
 ├── README_EN.md                       # 英文完整技术白皮书
 ├── SKILL.md                           # AI Agent 标准 Skill 规范定义
+├── CLAUDE.md                          # Claude Code 原生配置与操作手册
+├── AGENTS.md                          # 多平台智能体通用对接规范 (Codex/Antigravity/Cursor)
 ├── LICENSE                            # MIT 开源许可证
 │
 ├── subskills/                         # 三大核心子技能规范手册
 │   ├── 01_screenplay_dramaturgy/      # 剧作重构：Mode A/B 规范与动力学解耦铁律
-│   │   ├── SKILL.md
-│   │   └── rules.md
 │   ├── 02_spatial_blocking_audit/     # 3D 空间预演：Blender 预演、180°轴线与连续性合同
-│   │   ├── SKILL.md
-│   │   └── blocking_contract.md
 │   └── 03_h3_prompt_compiler/         # H3 提示词编译：MiniMax 官方规范、时间戳与标签标准
-│       ├── SKILL.md
-│       └── syntax_guide.md
 │
 ├── templates/                         # 工业生产标准模板库
 │   ├── screenplay_spec_a_domestic_template.md  # Mode A 国内微短剧标准剧本模板
@@ -159,40 +178,23 @@ OmniDirector-H3/
 
 ## 🚀 5分钟快速上手
 
-### 1. 克隆仓库
 ```bash
+# 1. 克隆仓库
 git clone https://github.com/egguy886/OmniDirector-H3.git
 cd OmniDirector-H3
 chmod +x tools/*.py tools/*.sh
-```
 
-### 2. 创作剧本（选择模式）
-* **国内短剧**：使用 `templates/screenplay_spec_a_domestic_template.md` 编写；
-* **出海短剧**：使用 `templates/screenplay_spec_b_template.md` 编写。
-
-### 3. 一键编译为 MiniMax H3 官方提示词
-```bash
+# 2. 编译剧本为 MiniMax H3 提示词脚手架 (支持 Mode A 或 Mode B)
 python3 tools/compile_screenplay_to_h3.py \
   --input templates/screenplay_spec_a_domestic_template.md \
   --output my_episode_prompts.md
-```
 
-### 4. 运行严格语法审计（确保 0 语法与标签错误）
-```bash
+# 3. 运行确定性语法审计 (确保 0 语法与标签错误)
 python3 tools/audit_h3_prompts.py --input examples/E01_h3_prompts_sample.md
-```
-审计器将自动核查：
-* 8 个 15.0 秒分段结构完整性；
-* `<d>` 与 `</d>` 对白标签是否严格一一闭合配对；
-* `[Shot X] At MM:SS.mmm` 时间戳是否严格绝对单调递增；
-* `non_diegetic_music: SILENT` 是否合规隔离；
-* 是否残存自建中文模块等分散 Cross-Attention 注意力的干扰项。
 
-### 5. 自由选择运行环境生成视频
-拿到经审计通过的提示词包后，您可以自由选择：
-* 复制提示词直接粘贴至 **MiniMax 官方 Web 创作端**；
-* 接入 **MiniMax 官方 Open Platform API** 进行批量调度；
-* 导入 **AutoDL / ComfyUI** 节点的 H3 生视频流程中运行！
+# 4. 运行 Blender 3D 轴线空间预演 (可选)
+blender --background --python tools/blender_proxy_previz.py -- --episode E01 --render
+```
 
 ---
 

@@ -34,7 +34,26 @@
 
 ---
 
-## 三、工业三阶全流程智能引擎 (Tri-Tier Core Engine)
+## 三、多平台智能体（AI Agent）适配架构
+
+OmniDirector-H3 深度适配全球主流 AI 智能体平台，开箱即用：
+
+### 1. Anthropic Claude (Claude Code / Claude Projects)
+* 仓库根目录下内置 [CLAUDE.md](./CLAUDE.md)，Claude Code 启动时自动载入所有导演工作流与验证规范。
+* 在 Claude Projects 中，可直接引入 SKILL.md 作为项目系统提示词。
+
+### 2. OpenAI Codex & ChatGPT Assistants
+* 参考 [AGENTS.md](./AGENTS.md) 中的 Codex 系统指令，直接指示 Codex 按照 Mode A/B 规范与 H3 四字段语法自动化生成脚本与分镜。
+
+### 3. Google Antigravity (AGY) / Gemini CLI
+* 直接将本项目放入 .agents/skills/omni-director-h3/ 或 ~/.gemini/config/skills/，根目录的 SKILL.md 会被自动注册为系统内置 Skill。
+
+### 4. Cursor / Windsurf / Cline / Roo Code
+* 在 .cursorrules 中引入 AGENTS.md 规则，即可在 IDE 中让 AI 实时进行剧本动力学解耦与提示词语法合规校验。
+
+---
+
+## 四、工业三阶全流程智能引擎 (Tri-Tier Core Engine)
 
 本系统的核心职责是**完成从故事剧作到 100% 符合 MiniMax H3 规范的高标准分镜提示词与资产连续性包的编译交付**。
 
@@ -71,7 +90,7 @@ flowchart TD
 
 ---
 
-## 四、双模式剧作规范 (Mode A 与 Mode B)
+## 五、双模式剧作规范 (Mode A 与 Mode B)
 
 ### 1. Mode A：国内中文微短剧标准
 * **定位平台**：抖音、快手、微信视频号、番茄短剧、红果短剧、爱奇艺随刻等；
@@ -91,7 +110,7 @@ flowchart TD
 
 ---
 
-## 五、生成执行：由用户完全自主决定
+## 六、生成执行：由用户完全自主决定
 
 **OmniDirector-H3 的工程边界是交付完美适配 H3 的高标准提示词。**
 
@@ -107,7 +126,7 @@ flowchart TD
 
 ---
 
-## 六、5分钟快速操作指南
+## 七、5分钟快速操作指南
 
 ```bash
 # 1. 克隆仓库
@@ -129,5 +148,5 @@ blender --background --python tools/blender_proxy_previz.py -- --episode E01 --r
 
 ---
 
-## 七、开源许可证
+## 八、开源许可证
 本项目基于 **MIT License** 完全开源。
