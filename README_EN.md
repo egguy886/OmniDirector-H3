@@ -151,7 +151,7 @@ OmniDirector-H3/
 
 ### Step 1: Clone Repository & Grant Permissions
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/OmniDirector-H3.git
+git clone https://github.com/egguy886/OmniDirector-H3.git
 cd OmniDirector-H3
 chmod +x tools/*.py tools/*.sh
 ```

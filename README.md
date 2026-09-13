@@ -132,7 +132,7 @@ OmniDirector-H3/
 ### 1. Installation & Environment Setup
 Clone this repository and ensure Python 3.10+ is available:
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/OmniDirector-H3.git
+git clone https://github.com/egguy886/OmniDirector-H3.git
 cd OmniDirector-H3
 chmod +x tools/*.py tools/*.sh
 ```
