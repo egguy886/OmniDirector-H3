@@ -32,6 +32,23 @@ This system is built from the ground up to conform to the native architecture an
 
 ---
 
+
+---
+
+## 🎨 Asset Generation Policies (视觉与音频资产政策)
+
+### 1. Visual Assets (视觉资产)
+* 🌟 **Primary Recommended**: Invoke **`imagegem`** inside **Codex** for character 3-view sheets, 45° profile shots, and stable cinematic lighting.
+* 🥈 **Secondary Recommended**: Use **`nanonanana`** for high-concept empty backgrounds and complex prop textures.
+* Standards: Characters need neutral micro-expression front + 45° turn + locked wardrobe; scenes must be strictly empty plates.
+
+### 2. Audio Assets (音频资产)
+* 🔇 **No Generator Recommended (Open Choice)**: The pipeline strictly avoids tool bias. The user may supply recordings from human voice actors, open-source models (VoxCPM, CosyVoice, GPT-SoVITS, F5-TTS), or commercial TTS (ElevenLabs).
+* Standards: Lossless **32kHz Mono WAV**, pure dry voice (no BGM/reverb), 5-15s duration.
+* Hard Rule: All prompt segments must enforce `non_diegetic_music: SILENT`.
+
+---
+
 ## 🏛️ Tri-Tier Core Intelligence Pipeline
 
 ```

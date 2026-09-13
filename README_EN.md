@@ -34,7 +34,37 @@ Empirical testing reveals that legacy custom "6-module" Chinese formats dilute d
 
 ---
 
-## 3. Multi-Platform AI Agent Integration (Claude Code / Codex / Antigravity)
+
+---
+
+## 3. Visual & Audio Asset Directives
+
+To guarantee reliable character face locks, lighting continuity, and vocal timing in MiniMax H3, the framework enforces strict asset interface standards (see [`templates/asset_production_spec.md`](templates/asset_production_spec.md)):
+
+### 1. Visual Asset Generation Strategy
+* 🌟 **Primary Recommended**: Invoke **`imagegem`** inside **Codex**.
+  * *Rationale*: Natively synergistic with AI agent prompt engineering. Produces mathematically grounded 3-view character references, 45° profile turns, and authentic skin textures without plastic CG artifacts.
+* 🥈 **Secondary Recommended**: **`nanonanana`**.
+  * *Use Case*: Ideal for high-concept empty background environments, complex prop textures, and cinematic visual styling moodboards.
+* **Key Visual Criteria**:
+  * **Characters**: Neutral micro-expression front + 45° turn + full-body wardrobe anchor;
+  * **Scenes**: Strictly empty plates without extraneous bystanders; locked key-light vectors;
+  * **Props**: Clear silhouette and perspective supporting a physical damage state machine.
+
+### 2. Audio Asset Generation Strategy
+* 🔇 **No Generator Recommended (Creator Choice)**:
+  * **This pipeline does not mandate or recommend any specific voice synthesis tool.**
+  * Whether utilizing studio recordings from human voice actors, open-source models (VoxCPM, CosyVoice, GPT-SoVITS, F5-TTS), or commercial TTS providers (ElevenLabs), creators choose freely based on vocal timbre and commercial licensing.
+* **MiniMax H3 Interface Specifications**:
+  * **Format**: Lossless **WAV** (Mono);
+  * **Sample Rate**: Standard **32kHz** (or 44.1kHz / 48kHz);
+  * **Acoustic Purity**: **Strictly dry voice**, completely free of background music, noise, or reverberation;
+  * **Duration**: 5.0 to 15.0 seconds containing 2–3 sentences with representative pacing and emotional pitch.
+* **Video Generation Silence Lock**: Multi-shot prompts must hard-lock `non_diegetic_music: SILENT`. Music beds are assembled in post-production.
+
+---
+
+## 4. Multi-Platform AI Agent Integration (Claude Code / Codex / Antigravity)
 
 OmniDirector-H3 natively supports major AI programming assistants and autonomous agent frameworks out of the box:
 
@@ -53,7 +83,7 @@ OmniDirector-H3 natively supports major AI programming assistants and autonomous
 
 ---
 
-## 4. Tri-Tier Core Intelligence Pipeline
+## 5. Tri-Tier Core Intelligence Pipeline
 
 OmniDirector-H3's core responsibility is **compiling literary narrative into 100% compliant, failure-proof MiniMax H3 prompt packets and continuity matrices**.
 
@@ -78,7 +108,7 @@ OmniDirector-H3's core responsibility is **compiling literary narrative into 100
 
 ---
 
-## 5. The Dual Production Modes (Mode A & Mode B)
+## 6. The Dual Production Modes (Mode A & Mode B)
 
 | Dimension | Mode A: Domestic Chinese Standard | Mode B: Global Streaming Standard |
 |---|---|---|
@@ -90,7 +120,7 @@ OmniDirector-H3's core responsibility is **compiling literary narrative into 100
 
 ---
 
-## 6. Flexible Execution: The User's Choice
+## 7. Flexible Execution: The User's Choice
 
 Once OmniDirector-H3 delivers your verified, 0-error prompt packet, you have complete freedom in choosing your MiniMax H3 generation environment:
 1. **MiniMax Official Creative Web UI**: Copy and paste prompt segments directly into the official web studio.
@@ -100,7 +130,7 @@ Once OmniDirector-H3 delivers your verified, 0-error prompt packet, you have com
 
 ---
 
-## 7. Quick Start in 5 Minutes
+## 8. Quick Start in 5 Minutes
 
 ```bash
 # 1. Clone repository
@@ -122,5 +152,5 @@ blender --background --python tools/blender_proxy_previz.py -- --episode E01 --r
 
 ---
 
-## 8. License
+## 9. License
 This project is open-sourced under the **MIT License**.

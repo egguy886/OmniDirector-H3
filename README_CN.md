@@ -34,7 +34,37 @@
 
 ---
 
-## 三、多平台智能体（AI Agent）适配架构
+
+---
+
+## 三、视觉资产与音频资产工程规范
+
+为保障 MiniMax H3 能够稳定锁脸、锁场景光影与咬合声线，系统制定了明确的前置资产输入标准（详见 [`templates/asset_production_spec.md`](templates/asset_production_spec.md)）：
+
+### 1. 视觉资产生成策略 (Visual Assets)
+* 🌟 **首选主推 (Primary Recommended)**：在 **Codex** 中调用 **`imagegem`** 生成。
+  * *深度优势*：与 AI Agent 提示词上下文原生协同，生成的人物三视图、45° 侧颜及物理受光极度严谨，肤质纹理真实自然，彻底杜绝塑料 CG 质感。
+* 🥈 **次选推荐 (Secondary Recommended)**：**`nanonanana`**。
+  * *适用场景*：适合作为高概念场景空镜、复杂道具质感与特定影视风格参考图的补充工具。
+* **交付硬指标**：
+  * **人物参考图**：中立微表情正面 + 45° 侧脸 + 全身服装锁定照；
+  * **场景参考图**：纯无人空镜，锁定主光源朝向与环境冷暖基底；
+  * **道具参考图**：纯色底微透视，支持完整损伤状态机（如未拆封 $\rightarrow$ 破损撕开）。
+
+### 2. 音频资产生成策略 (Audio Assets)
+* 🔇 **生成工具不做推荐 (No Generator Recommended / Open Choice)**：
+  * **本系统对音频生成工具不做任何推荐或绑定**。
+  * 无论是真人专业配音员实录干音、开源声线模型（VoxCPM, CosyVoice, GPT-SoVITS, F5-TTS）还是商业配音工具（ElevenLabs），创作者均可根据声线贴合度与商用版权完全自选。
+* **MiniMax H3 兼容接口参数**：
+  * **格式**：无损 **WAV**（单声道 Mono）；
+  * **采样率**：标准 **32kHz**（或 44.1kHz / 48kHz）；
+  * **纯净度**：**绝对纯干音（Dry Voice）**，禁止带伴奏、底噪与混响（Reverb）；
+  * **时长**：5.0 至 15.0 秒，包含 2–3 句带典型语速与情绪起伏的自然台词。
+* **视频提示词静音铁律**：视频生成阶段严格锁定 `non_diegetic_music: SILENT`，配乐由成片后期统筹混音。
+
+---
+
+## 四、多平台智能体（AI Agent）适配架构
 
 OmniDirector-H3 深度适配全球主流 AI 智能体平台，开箱即用：
 
@@ -53,7 +83,7 @@ OmniDirector-H3 深度适配全球主流 AI 智能体平台，开箱即用：
 
 ---
 
-## 四、工业三阶全流程智能引擎 (Tri-Tier Core Engine)
+## 五、工业三阶全流程智能引擎 (Tri-Tier Core Engine)
 
 本系统的核心职责是**完成从故事剧作到 100% 符合 MiniMax H3 规范的高标准分镜提示词与资产连续性包的编译交付**。
 
@@ -90,7 +120,7 @@ flowchart TD
 
 ---
 
-## 五、双模式剧作规范 (Mode A 与 Mode B)
+## 六、双模式剧作规范 (Mode A 与 Mode B)
 
 ### 1. Mode A：国内中文微短剧标准
 * **定位平台**：抖音、快手、微信视频号、番茄短剧、红果短剧、爱奇艺随刻等；
@@ -110,7 +140,7 @@ flowchart TD
 
 ---
 
-## 六、生成执行：由用户完全自主决定
+## 七、生成执行：由用户完全自主决定
 
 **OmniDirector-H3 的工程边界是交付完美适配 H3 的高标准提示词。**
 
@@ -126,7 +156,7 @@ flowchart TD
 
 ---
 
-## 七、5分钟快速操作指南
+## 八、5分钟快速操作指南
 
 ```bash
 # 1. 克隆仓库
@@ -148,5 +178,5 @@ blender --background --python tools/blender_proxy_previz.py -- --episode E01 --r
 
 ---
 
-## 八、开源许可证
+## 九、开源许可证
 本项目基于 **MIT License** 完全开源。

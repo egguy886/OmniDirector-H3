@@ -6,9 +6,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Target Model: MiniMax H3](https://img.shields.io/badge/Target%20Model-MiniMax%20H3%20Multimodal-orange.svg)](https://www.minimaxi.com/)
+[![Visual: imagegem in Codex | nanonanana](https://img.shields.io/badge/Visual%20Assets-imagegem%20(Codex)%20%7C%20nanonanana-purple.svg)](#-visual--audio-asset-directives--视觉与音频资产工程规范)
+[![Audio: 32kHz Dry WAV | No Generator Bias](https://img.shields.io/badge/Audio%20Assets-32kHz%20Dry%20WAV%20%7C%20Open%20Choice-blue.svg)](#-visual--audio-asset-directives--视觉与音频资产工程规范)
 [![Agents: Claude | Codex | Antigravity](https://img.shields.io/badge/Agents-Claude%20Code%20%7C%20Codex%20%7C%20Antigravity-blueviolet.svg)](./AGENTS.md)
 [![Screenplay: Mode A & Mode B](https://img.shields.io/badge/Screenplay-Mode%20A%20Domestic%20%7C%20Mode%20B%20Global-red.svg)](#-the-dual-production-modes-mode-a--mode-b)
-[![Previz: Blender 3D](https://img.shields.io/badge/Previz-Blender%205.x%20%7C%204.x-E87D0D.svg)](https://www.blender.org/)
 [![Status: Production Ready](https://img.shields.io/badge/Status-0%20Syntax%20Errors-brightgreen.svg)](#)
 
 ---
@@ -51,22 +52,41 @@ MiniMax H3 具备强大的原生多模态时序理解与音画协同能力，但
 
 ---
 
+## 🎨 Visual & Audio Asset Directives / 视觉与音频资产工程规范
+
+为保障 MiniMax H3 能够稳定锁脸、锁场景光影与咬合声线，系统制定了明确的前置资产输入标准（详见 [`templates/asset_production_spec.md`](templates/asset_production_spec.md)）：
+
+### 1. 视觉资产生成策略 (Visual Assets)
+* 🌟 **首选主推 (Primary Recommended)**：在 **Codex** 中调用 **`imagegem`** 生成。
+  * *原因*：深度结合智能体提示词上下文，生成的人物三视图、45° 侧颜及物理光源极度严谨，肤质写实自然，彻底告别廉价塑料 AI 感。
+* 🥈 **次选推荐 (Secondary Recommended)**：**`nanonanana`**。
+  * *原因*：适合作为高概念场景空镜、极端道具材质与视觉风格概念图的补充生成工具。
+* **资产交付标准**：
+  * **人物**：中立微表情正面 + 45° 侧脸 + 全身服装锁定照；
+  * **场景**：纯无人空镜，锁定主光源朝向与环境冷暖基底；
+  * **道具**：纯色底微透视，支持完整损伤状态机（如未拆封 $\rightarrow$ 破损撕开）。
+
+### 2. 音频资产生成策略 (Audio Assets)
+* 🔇 **生成工具不做推荐 (No Generator Recommended / Open Choice)**：
+  * **本系统对音频生成工具不做任何推荐或绑定**。
+  * 无论是真人专业配音员实录干音、开源声线模型（VoxCPM, CosyVoice, GPT-SoVITS, F5-TTS）还是商业配音工具（ElevenLabs），创作者可根据声线拟真度与商用版权完全自选。
+* **MiniMax H3 兼容接口参数**：
+  * **格式**：无损 **WAV**（单声道 Mono）；
+  * **采样率**：**32kHz**（或 44.1kHz / 48kHz）；
+  * **纯净度**：**绝对纯干音（Dry Voice）**，禁止带伴奏、底噪与混响（Reverb）；
+  * **时长**：5.0 至 15.0 秒，包含 2–3 句带典型语速与情绪起伏的自然台词。
+* **视频提示词静音铁律**：视频生成阶段严格锁定 `non_diegetic_music: SILENT`，配乐由成片后期统筹混音。
+
+---
+
 ## 🤖 Multi-Platform AI Agent Integration / 多平台智能体适配
 
 OmniDirector-H3 原生支持主流 AI 编程助手与自主智能体平台，开箱即用：
 
-### 1. Anthropic Claude (Claude Code / Claude Projects)
-* 仓库根目录下内置 **[`CLAUDE.md`](./CLAUDE.md)**，Claude Code 启动时自动读取所有导演工作流与验证规范。
-* 在 Claude Projects 中，可直接引入 `SKILL.md` 作为项目系统提示词。
-
-### 2. OpenAI Codex & ChatGPT
-* 参考 **[`AGENTS.md`](./AGENTS.md)** 中的 Codex 系统指令，直接指示 Codex 按照 Mode A/B 规范与 H3 四字段语法自动化生成脚本与分镜。
-
-### 3. Google Antigravity (AGY) / Gemini CLI
-* 直接将本项目放入 `.agents/skills/omni-director-h3/` 或 `~/.gemini/config/skills/`，根目录的 **[`SKILL.md`](./SKILL.md)** 会被自动注册为系统内置 Skill。
-
-### 4. Cursor / Windsurf / Cline / Roo Code
-* 在 `.cursorrules` 中引入 `AGENTS.md` 规则，即可在 IDE 中让 AI 实时进行剧本动力学解耦与提示词语法合规校验。
+* **Anthropic Claude** (Claude Code / Claude Projects)：内置 [`CLAUDE.md`](./CLAUDE.md)，Claude Code 启动时自动载入所有导演工作流与审计规范；
+* **OpenAI Codex** & ChatGPT：提供 [`AGENTS.md`](./AGENTS.md) 专用指令，原生指导 Codex 调用 **`imagegem`** 生产视觉资产；
+* **Google Antigravity** (AGY / Gemini CLI)：放入 `.agents/skills/omni-director-h3/`，根目录 [`SKILL.md`](./SKILL.md) 自动注册为系统 Skill；
+* **Cursor / Windsurf / Cline**：在 `.cursorrules` 中引入 `AGENTS.md` 规则，实时校验分镜与剧本。
 
 ---
 
@@ -83,30 +103,31 @@ flowchart TD
         D --> E["生理体感张力白描 (锁骨汗液微光/零度白雾/10cm空间抗压)"]
     end
 
-    subgraph Tier2["Tier 2: 3D空间调度与连续性校验 (Spatial Blocking & Continuity)"]
-        E --> F[无头 Blender 3D 代理空间搭建]
-        F --> G["180° 摄影机动作轴线强制防守"]
-        G --> H["24fps 物理运动预算分配 (杜绝动作堆叠与快进抽搐)"]
-        H --> I["段间转场裁决合同 (TAIL_RELAY 尾帧接力 vs HARD_CUT 硬切)"]
+    subgraph Tier2["Tier 2: 3D空间调度与资产校验 (Spatial Blocking & Assets)"]
+        E --> F["视觉资产筹备 (主推 Codex imagegem / 次选 nanonanana)"]
+        F --> G["音频资产标准接入 (32kHz 纯干音 WAV / 生成工具不做推荐)"]
+        G --> H[无头 Blender 3D 代理空间搭建]
+        H --> I["180° 动作轴线死守 & 24fps 物理运动预算分配"]
+        I --> J["段间转场裁决 (TAIL_RELAY 尾帧接力 vs HARD_CUT 硬切)"]
     end
 
     subgraph Tier3["Tier 3: MiniMax H3 官方提示词编译 (H3 Multimodal Prompt Compiler)"]
-        I --> J[MiniMax H3 官方四纯净字段组装]
-        J --> K["毫秒绝对递增时间戳分镜 (At 00:03.500)"]
-        K --> L["官方专用发声标签：&lt;d&gt; Speaker: Line &lt;/d&gt;"]
-        L --> M["双层声音隔离：Foley环境声 + non_diegetic_music: SILENT"]
-        M --> N[确定性 CLI 语法审计工具：100% 拦截未闭合标签与违禁字段]
+        J --> K[MiniMax H3 官方四纯净字段组装]
+        K --> L["毫秒绝对递增时间戳分镜 (At 00:03.500)"]
+        L --> M["官方专用发声标签：&lt;d&gt; Speaker: Line &lt;/d&gt;"]
+        M --> N["双层声音隔离：Foley环境声 + non_diegetic_music: SILENT"]
+        N --> O[确定性 CLI 语法审计工具：100% 拦截未闭合标签与违禁字段]
     end
 
     subgraph Output["交付物：完全符合 MiniMax H3 的生产包 (Verified Production Packet)"]
-        N --> O["H3 标准 15 秒提示词集 (8 段/集) + 资产索引与连续性矩阵"]
+        O --> P["H3 标准 15 秒提示词集 (8 段/集) + 资产索引与连续性矩阵"]
     end
 
     subgraph Execution["用户自主选择执行环境 (Flexible Model Execution)"]
-        O -.-> P1["途径 1：MiniMax 官方开放平台 API 接入"]
-        O -.-> P2["途径 2：MiniMax 官方 Web 创作平台粘贴生成"]
-        O -.-> P3["途径 3：GPU 云端 (AutoDL / RunPod) ComfyUI H3 节点"]
-        O -.-> P4["途径 4：自动化批处理工具 (tools/run_overnight_batch.py)"]
+        P -.-> Q1["途径 1：MiniMax 官方开放平台 API 接入"]
+        P -.-> Q2["途径 2：MiniMax 官方 Web 创作平台粘贴生成"]
+        P -.-> Q3["途径 3：GPU 云端 (AutoDL / RunPod) ComfyUI H3 节点"]
+        P -.-> Q4["途径 4：自动化批处理工具 (tools/run_overnight_batch.py)"]
     end
 ```
 
@@ -121,20 +142,6 @@ flowchart TD
 | **角色命名** | 地道中文角色名（如：林舟、陆辰、苏晴） | 国际化英文角色名（如：Cade, Reeve, Nia） |
 | **对白语言** | 地道中文口语，节奏紧凑、短促有力、强化即时反转 | 纯正美式/国际英语，口语化、含蓄、带停顿与潜台词 |
 | **模板文件** | [`templates/screenplay_spec_a_domestic_template.md`](templates/screenplay_spec_a_domestic_template.md) | [`templates/screenplay_spec_b_template.md`](templates/screenplay_spec_b_template.md) |
-| **审核适配** | 严格遵循国内网络视听节目审核通则（规避暴力、庸俗） | 符合海外主流短剧平台高情绪浓缩与合规规范 |
-
----
-
-## ⚡ Comparative Benchmark / 传统工作流 vs 全知导演系统
-
-| 维度 / Dimension | 传统 AI 视频生产 / Conventional AI Production | OmniDirector-H3 工业系统 / OmniDirector Pipeline |
-|---|---|---|
-| **动作描写 / Actions** | 复合长句（"他冲过去坐下一边倒咖啡一边笑"），导致肢体融化变形 | **原子动力学解耦（`△`）**，单句单一矢量，`触碰→反应→稳定`闭环，零穿模 |
-| **镜头调度 / Blocking** | 提示词随机抽卡，左右机位颠倒，严重破坏 180° 轴线 | **Blender 3D 低成本代理预演**，物理世界坐标锚定，强制轴线防守 |
-| **镜头切换 / Multi-Shot** | 频繁切镜导致模型注意力漂移或无法识别切镜点 | **毫秒绝对递增时间戳**（`At 00:04.500`），模型精准在标称帧硬切 |
-| **情感与亲密戏 / Romance** | 露骨形容词导致安全审查拦截（Censorship Block） | **生理体感白描**（锁骨汗液微光、零度白雾、10cm气压逼近），100% 通过审查 |
-| **音频质感 / Audio** | 模型随机生成恶性合成器伴奏，成片无法再混音 | **双层声音隔离**（`overall_soundscape` 环境声 + `non_diegetic_music: SILENT`） |
-| **生产闭环 / Delivery** | 提示词语法错误频出，依赖人工多次试错浪费算力 | **确定性语法审计网**（`tools/audit_h3_prompts.py`），生成前排查 100% 格式缺陷 |
 
 ---
 
@@ -156,6 +163,7 @@ OmniDirector-H3/
 │   └── 03_h3_prompt_compiler/         # H3 提示词编译：MiniMax 官方规范、时间戳与标签标准
 │
 ├── templates/                         # 工业生产标准模板库
+│   ├── asset_production_spec.md       # 视觉资产 (imagegem/nanonanana) 与音频资产 (32kHz) 规范
 │   ├── screenplay_spec_a_domestic_template.md  # Mode A 国内微短剧标准剧本模板
 │   ├── screenplay_spec_b_template.md           # Mode B 出海微短剧双模剧本模板
 │   ├── h3_prompt_template.md                   # MiniMax H3 官方 15 秒多模态提示词模板

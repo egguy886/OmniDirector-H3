@@ -6,21 +6,24 @@ This document configures **Claude Code** (and Anthropic Claude Projects) to oper
 
 ## Agent Role & Directives
 
-When Claude Code is invoked within this repository or on a screenplay task:
+When Claude Code is invoked within this repository or on a short drama task:
 1. **Target Model**: Always target **MiniMax H3** multimodal foundation model standards.
-2. **Choose Mode**:
+2. **Visual & Audio Asset Rules**:
+   - **Visual Assets**: Primarily recommend generating character and scene reference assets using **`imagegem`** inside Codex; secondarily recommend **`nanonanana`**.
+   - **Audio Assets**: Do **NOT** recommend any specific voice generator or TTS tool. Accept any user-provided 32kHz Mono lossless WAV dry voice.
+3. **Choose Screenplay Mode**:
    - **Mode A**: Domestic Chinese micro-dramas (抖音/快手/番茄/红果). All Chinese action lines (`△`) and natural Chinese spoken dialogue.
    - **Mode B**: Global streaming micro-dramas (ReelShort/DramaBox/TikTok). Chinese action lines (`△`) and idiomatic English spoken dialogue.
-3. **Atomic Momentum Decoupling**:
+4. **Atomic Momentum Decoupling**:
    - Strictly enforce one kinetic vector per beat.
    - Break compound actions into the causal triad: `Contact -> Reaction -> Steady State`.
    - Never stack multiple verbs inside a single 3-second beat (prevents AI diffusion melting).
-4. **MiniMax H3 Multimodal Prompt Syntax**:
+5. **MiniMax H3 Multimodal Prompt Syntax**:
    - Wrap spoken dialogue in `<d> Speaker: "Exact spoken dialogue" </d>`.
    - Use millisecond timestamps for multi-shot cuts inside a 15s segment: `[Shot 2] At 00:03.500, the camera cuts to...`.
    - Hard-lock non-diegetic background score: `non_diegetic_music: SILENT`.
    - Itemize acoustic Foley and room tone in `overall_soundscape:`.
-5. **Deterministic Verification Gate**:
+6. **Deterministic Verification Gate**:
    - Always run `python3 tools/audit_h3_prompts.py --input <file>` to ensure 0 unclosed tags or syntax violations before finalizing prompts.
 
 ---
