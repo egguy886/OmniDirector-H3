@@ -1,188 +1,133 @@
 # OmniDirector-H3 (全知导演 H3)
-## 微短剧剧作重构 · 3D空间预演 · 动力学解耦 · 官方多模态编译 · 无人值守批处理工业系统
+## 专为 MiniMax H3 打造的工业级短剧剧作重构 · 3D空间预演 · 动力学解耦 · 官方多模态编译系统
 
 ---
 
-## 一、系统诞生背景与核心痛点
+## 一、“OmniDirector” 命名与设计哲学
 
-随着生成式视频大模型（如 MiniMax H3、Kling、Runway Gen-3、Sora、Hailuo 等）在影视与出海微短剧领域的爆发，工业化生产面临着严重的**“技术—剧作鸿沟”**：
+### 1. 为什么叫 “Omni”？
+**"Omni"**（读作 /ˈɒmni/）源自古罗马拉丁语词根 *omnis*，中文意为**“全”、“全知全能”、“无所不包的”**。在科技与哲学领域，它是极致掌控力的象征：
+* **哲学与宗教**：*Omniscient*（全知者，洞察万物因果）、*Omnipotent*（全能者，具备无限创造力）；
+* **顶级科技平台**：如英伟达旗下的 *NVIDIA Omniverse*（面向全宇宙物理仿真的工业级虚拟现实平台）；
+* **商业与工业**：*Omnichannel*（全渠道全链路无缝整合）。
 
-1. **“扩散融化”（Diffusion Melting）与多肢畸变**：
-   传统剧本充满了人类演员可轻松履行的复合动作长句（例如：“*他急步冲进房间，坐在铁椅上一边大口灌着咖啡，一边愤怒地瞪着门口的女主*”）。在视频扩散模型中，这种复合动作指令会导致 Latent 潜空间注意力崩溃，产生肢体融化、第三只手、面部扭曲与物体随机变形。
-2. **三维空间失序与 180° 越轴灾难**：
-   纯文本提示词缺乏物理世界三维坐标概念。镜头在段落间切换时，常出现角色左右站位颠倒、视线错位、光影逆转，彻底破坏影视语言的轴线规则。
-3. **敏感词拦截与审查误杀（False Positives）**：
-   微短剧核心卖点往往包含高荷尔蒙、身材张力与亲密拉扯。大量创作者直接输入露骨词汇（如“性感”、“胸肌”、“抚摸”、“湿吻”），频繁触发大模型安全网关报错，导致生成任务被批量丢弃。
-4. **劣质配乐污染成片，摧毁后期混音**：
-   模型原生端到端生成的音频往往混入低质、无法消除的合成器伴奏（BGM），掩盖了关键对白与物理拟音（Foley），使工业级专业后期音效混音无法实施。
-5. **通宵盯盘与算力成本浪费**：
-   一部 10 集微短剧包含 80 个 15 秒视频片段（共 1,200 秒高码率成片）。创作者若在网页端手动反复复制粘贴提示词，不仅耗尽精力，更无法利用各大 GPU 云平台在凌晨特惠时段（00:01 至 08:00）的半价算力窗口。
+### 2. 为什么叫 “OmniDirector（全知导演）”？
+在目前的 AI 视频与短剧创作生态中，大多数创作者停留在“提示词抽卡（Prompt Typers）”阶段——把小说直接丢给 AI，一旦遇到角色肢体融化、多手多脚、男女主左右站位越轴穿帮、台词对不上口型、模型自动胡乱生成嘈杂电音伴奏时，只能束手无策地反复重抽。
 
-**OmniDirector-H3** 为解决上述痛点而生。它不是一个简单的 Prompt 集合，而是一套涵盖“剧本重塑—空间校验—语法编译—自动化批处理”的工业级端到端电影级生产体系。
-
----
-
-## 二、四大子体系深度解析
-
-### 1. 第一阶：剧作重构与动力学解耦 (`01_screenplay_dramaturgy`)
-
-*让剧本从“文学描写”转译为“扩散模型可执行的物理原子向量”。*
-
-- **Mode B 出海微短剧标准**：
-  - **动作调度（`△`）**：全中文精准白描。利用中文在动词细分与动量描述上的高密度，为生成控制提供清晰的因果链。
-  - **对白语言**：地道纯正的英语口语。专为出海短剧（ReelShort、DramaBox、ShortMax、TikTok）设计，节奏紧凑、短促有力，符合 18 岁青春竞技与悬疑调性。
-  - **潜台词系统**：显式标注 `[中文潜台词: ...]`，仅供主创审核表演内核，绝不录入台词发音标签。
-- **原子动力学解耦铁律（Atomic Momentum Decoupling）**：
-  - **单节拍单矢量原则**：一个动作分镜内只允许出现**一个核心动词**。
-  - **接触—受力—反应三角闭环**：
-    $$\text{接触 (Contact)} \longrightarrow \text{物理受力 (Reaction)} \longrightarrow \text{稳态/释放 (Steady State)}$$
-  - 严禁将奔跑、抓取、说话、转头堆叠在同一 3 秒窗口内。
-- **生理体感张力白描（防审查设计）**：
-  - 彻底摒弃易触发敏感词拦截的主观词汇，全面替换为客观可观察的物理生理细节：
-    - *描写雄性荷尔蒙与健美身材* $\rightarrow$ 湿透的深灰训练背心紧贴起伏的胸肌轮廓、锁骨凹陷处的汗珠折射冷光、前臂紧绷时浮现的肌腱与青筋。
-    - *描写极度亲密与对抗拉扯* $\rightarrow$ 距离缩减至极限 10 公分、粗重滚烫的气流在零度晨雾中凝结为白气、喉结剧烈滚动、指尖距离手腕悬停一毫米。
+**OmniDirector** 将创作者的角色升级为一位**全方位统筹调度的“电影工业级全知总导演”**：
+1. **全模态统筹（Omni-Dimensional）**：不再只写干瘪的文本，而是将文学叙事、三维空间几何、24fps 动作动力学、微表情体感与物理拟音（Foley）五维合一。
+2. **全场景兼容（Omni-Market）**：原生双模驱动，既提供面向抖音/快手/红果的 **Mode A 国内短剧标准**，又提供面向 ReelShort/DramaBox/TikTok 的 **Mode B 出海短剧双模标准**。
+3. **全周期连续（Omni-Consistent）**：在镜头切换之间死守 180° 轴线，对道具破损与伤情建立状态机，并通过 `TAIL_RELAY` 尾帧接力合同确保多集生成永不漂移。
 
 ---
 
-### 2. 第二阶：Blender 3D空间调度与分镜校验 (`02_spatial_blocking_audit`)
+## 二、专为 MiniMax H3 大模型深度优化
 
-*在生成之前，用低成本 3D 代理资产筑牢物理世界坐标防线。*
+**本系统的核心编译目标是 MiniMax 旗下的旗舰级音视频多模态大模型——MiniMax H3。**
 
-- **180° 动作轴线铁律**：
-  - 在无头 Blender 脚本中建立核心对话双方的虚拟连线（Action Axis）。
-  - 所有摄影机位强制锁定在轴线同侧（如 $Y < 0$ 的跑道西侧）；需要翻转机位时，必须中间插入严格的骑轴中立镜头（如头顶俯拍或背侧过轴）。
-- **24fps 物理运动预算（Motion Budget）**：
-  - 在 3.5 秒镜头预算内（$3.5 \times 24 = 84$ 帧），按人体极限运动速度（冲刺 10 m/s，常速 1.2 m/s，手臂伸展 0.8s）精密核算位移，杜绝模型为了完成不可能的超长动作而出现“快进式抽搐”。
-- **段间连续性裁决合同（Continuity Arbiter）**：
-  - `TAIL_RELAY`（尾帧接力）：同场同时间连续段落，将前一段最后 1.0 秒（稳态锁定期）的渲染帧作为下一段的起幅参考图（`ref_image_0`）。
-  - `HARD_CUT`（硬切转场）：跨场景空间跳跃，切断尾帧继承，启用全新场景参考图。
-  - `CAUSAL_MATCH_CUT`（因果匹配切）：跨空间匹配特定物体或动量矢量。
-- **道具与伤情状态机**：
-  - 追踪道具全生命周期（未开封 $\rightarrow$ 撕毁 $\rightarrow$ 散落；干燥 $\rightarrow$ 湿透 $\rightarrow$ 污损），严禁出现下一镜头道具自动复原的穿帮事故。
+实测证明，早期市面上流传的“自建中文六大模块”提示词会严重稀释扩散模型底层的 Cross-Attention 注意力，导致切镜时间戳失效、构图变形。OmniDirector-H3 完全重构并严密贴合 **MiniMax H3 官方规范**：
+
+* **官方毫秒绝对时间戳硬切**：在 `integrated_multimodal_description:` 中注入绝对递增时间戳（如 `[Shot 2] At 00:03.500, the camera cuts to...`），让 MiniMax H3 在单个 15 秒片段内精准完成电影级硬切，告别画面融化。
+* **官方 `<d>` 发声标签**：将台词严格封装为 `<d> Speaker: "Exact spoken line" </d>`，确保角色说话时动作、口型与声线咬合一致。
+* **双层声音隔离铁律**：在提示词尾部强制注入 `non_diegetic_music: SILENT`，彻底阻断模型自动生成劣化合成器配乐，保留极其纯净的对白与环境拟音（Foley），为后续商业配乐混音奠定工业基础。
+* **确定性语法审计拦截网**：配套提供 `tools/audit_h3_prompts.py`，在提交前以 0 容忍度排查未闭合标签、非法字符、时间戳非递增等所有隐患。
 
 ---
 
-### 3. 第三阶：MiniMax H3 官方提示词编译器 (`03_h3_prompt_compiler`)
+## 三、工业三阶全流程智能引擎 (Tri-Tier Core Engine)
 
-*彻底废弃自建六大模块，回归 MiniMax 官方底层注意力机制。*
+本系统的核心职责是**完成从故事剧作到 100% 符合 MiniMax H3 规范的高标准分镜提示词与资产连续性包的编译交付**。
 
-实测证明，早期自建的中文“六大模块”提示词会稀释扩散模型的 Cross-Attention，导致时间戳切镜失败。OmniDirector-H3 升级为官方 **四大纯净字段结构**：
+```mermaid
+flowchart TD
+    subgraph Tier1["第一阶：剧作重构与动力学解耦 (01_screenplay_dramaturgy)"]
+        A[小说原著 / 故事大纲] --> B{选择剧作模式}
+        B -->|Mode A| C1["Mode A 国内短剧标准 (全中文剧本 + 平台爆点钩子)"]
+        B -->|Mode B| C2["Mode B 出海短剧双模标准 (中文动作 △ + 纯正英文对白)"]
+        C1 --> D["原子动力学解耦：单节拍单动量矢量 (触碰→受力→稳定)"]
+        C2 --> D
+        D --> E["生理体感张力白描 (锁骨汗液微光/零度白雾/10cm空间抗压)"]
+    end
 
-1. **参考图片对齐声明（Header）**：
-   ```text
-   For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
-   ```
-2. **多模态时序脚本总控（`integrated_multimodal_description:`）**：
-   - 首镜头确立画质基调：`[Shot 1] Live-action, cinematic vertical 9:16 realism...`
-   - 后续镜头使用毫秒级绝对递增时间戳：`[Shot 2] At 00:03.500, the camera cuts to...`
-   - 对白严格使用官方发声标签：`<d> Speaker: "Exact spoken line" </d>`
-3. **环境与物理 Foley（`overall_soundscape:`）**：
-   - 细致罗列鞋钉抓地声、冷风呼啸、门禁锁死撞击声、低频空调嗡鸣。
-4. **非剧情配乐锁（`non_diegetic_music: SILENT`）**：
-   - **核心工业标准**：生成阶段强制为 `SILENT`。保留极其干净的对白与拟音频道，为成片阶段的商业配乐预留纯净声道。
-5. **确定性 CLI 语法审计器 (`tools/audit_h3_prompts.py`)**：
-   - 自动检测标签闭合配对、时间戳单调递增性、字数边界与非法字符。
+    subgraph Tier2["第二阶：3D空间调度与分镜校验 (02_spatial_blocking_audit)"]
+        E --> F[无头 Blender 3D 代理空间搭建]
+        F --> G["180° 摄影机动作轴线强制防守"]
+        G --> H["24fps 物理运动预算分配 (杜绝动作堆叠与快进抽搐)"]
+        H --> I["段间转场裁决合同 (TAIL_RELAY 尾帧接力 vs HARD_CUT 硬切)"]
+    end
 
----
+    subgraph Tier3["第三阶：MiniMax H3 官方提示词编译 (03_h3_prompt_compiler)"]
+        I --> J[MiniMax H3 官方四纯净字段组装]
+        J --> K["毫秒绝对递增时间戳分镜 (At 00:03.500)"]
+        K --> L["官方专用发声标签：&lt;d&gt; Speaker: Line &lt;/d&gt;"]
+        L --> M["双层声音隔离：Foley环境声 + non_diegetic_music: SILENT"]
+        M --> N[确定性 CLI 语法审计工具：100% 拦截未闭合标签与违禁字段]
+    end
 
-### 4. 第四阶：无人值守通宵特惠批处理调度器 (`04_production_orchestrator`)
-
-*精准卡位凌晨特惠时段，省时、省力、省成本。*
-
-- **特惠窗口锁（00:01:00 定时自动唤醒）**：
-  - 大量算力平台（如 AutoDL 等）夜间算力折扣高达 50%。
-  - 脚本内置秒级高精度定时器，配合操作系统防休眠锁（macOS `caffeinate`），在午夜 00:01:00 准时苏醒启动。
-  - 设置 08:00:00 强制停机保护，杜绝跨出优惠时段产生高额账单。
-- **断点自愈状态机 (`batch_progress.json`)**：
-  - 实时记录每个片段的生命周期：`PENDING` $\rightarrow$ `SUBMITTING` $\rightarrow$ `RUNNING` $\rightarrow$ `COMPLETED`。
-  - 若遇网络抖动或崩溃，重启脚本即刻从最后一个未完成片段继续执行，**绝不重复扣费**。
-- **资产自动化编译与装配**：
-  - 自动将角色正脸、服装图、场景空镜底图及 32kHz 角色参考音频编码为 Base64 负载或对象存储链接。
-- **全自动批量成片下载与 QC 校验**：
-  - 自动轮询 API 状态，下载 MP4 并进行容器完整性校验，提取关键帧生成审查接触表（Contact Sheet）。
-
----
-
-## 三、目录架构一览
-
-```text
-OmniDirector-H3/
-├── README.md                          # 旗舰双语介绍主页
-├── README_CN.md                       # 中文完整技术白皮书（本文档）
-├── README_EN.md                       # 英文完整技术白皮书
-├── SKILL.md                           # AI Agent 标准 Skill 规范定义
-├── LICENSE                            # MIT 开源许可证
-│
-├── subskills/                         # 四大子体系规范手册
-│   ├── 01_screenplay_dramaturgy/      # 剧作重构、Mode B 规范与解耦铁律
-│   │   ├── SKILL.md
-│   │   └── rules.md
-│   ├── 02_spatial_blocking_audit/     # Blender 3D 预演、180°轴线与连续性合同
-│   │   ├── SKILL.md
-│   │   └── blocking_contract.md
-│   ├── 03_h3_prompt_compiler/         # MiniMax H3 官方规范、时间戳与标签标准
-│   │   ├── SKILL.md
-│   │   └── syntax_guide.md
-│   └── 04_production_orchestrator/    # 无人值守批处理、特惠定时与断点状态机
-│       ├── SKILL.md
-│       └── checkpoint_spec.md
-│
-├── tools/                             # 工业生产命令行工具集
-│   ├── audit_h3_prompts.py            # H3 提示词确定性语法与标签审计器
-│   ├── compile_screenplay_to_h3.py   # 剧本快速转 H3 多模态脚手架编译器
-│   ├── run_overnight_batch.py         # 通宵无人值守特惠窗口批处理引擎
-│   ├── blender_proxy_previz.py        # 无头 Blender 3D 轴线空间校验工具
-│   └── push_to_github.sh              # 一键发布至 GitHub 辅助脚本
-│
-├── templates/                         # 工业生产标准模板库
-│   ├── screenplay_spec_b_template.md  # Mode B 中英双模剧本模板
-│   ├── h3_prompt_template.md          # MiniMax H3 15秒官方提示词模板
-│   └── continuity_contract_template.md# 跨集资产、转场判定与状态机跟踪表
-│
-└── examples/                          # 实战验证资产库（E01 完整生产包）
-    ├── E01_screenplay_sample.md       # 实战剧本：高张力、强荷尔蒙竞技悬疑
-    ├── E01_h3_prompts_sample.md       # 实战编译提示词包（8段全部通过 0 错误审计）
-    └── batch_progress_example.json    # 批处理断点状态记录文件范例
+    subgraph Output["标准交付物：完全符合 MiniMax H3 的生产包"]
+        N --> O["H3 标准 15 秒提示词集 (8 段/集) + 资产索引与连续性矩阵"]
+    end
 ```
 
 ---
 
-## 四、5分钟快速上手指南
+## 四、双模式剧作规范 (Mode A 与 Mode B)
 
-### 步骤 1：克隆仓库与准备环境
+### 1. Mode A：国内中文微短剧标准
+* **定位平台**：抖音、快手、微信视频号、番茄短剧、红果短剧、爱奇艺随刻等；
+* **剧作规范**：
+  * **角色名**：地道中文名（如：林舟、陆辰、苏晴）；
+  * **动作调度（`△`）**：全中文精准动词，采用“单节拍单矢量”解耦；
+  * **对白语言**：地道中文口语，节奏紧凑、反转强烈，符合短视频受众 3 秒留存心理；
+  * **模板路径**：[`templates/screenplay_spec_a_domestic_template.md`](templates/screenplay_spec_a_domestic_template.md)。
+
+### 2. Mode B：出海微短剧双模标准
+* **定位平台**：ReelShort、DramaBox、ShortMax、TikTok 等出海平台；
+* **剧作规范**：
+  * **角色名**：国际化英文角色名（如：Cade, Reeve, Nia）；
+  * **动作调度（`△`）**：全中文高密度动作指令（便于主创把控与 AI 动量解耦）；
+  * **对白语言**：纯正美式/国际英语对白，口语化、含蓄、带停顿与潜台词；
+  * **模板路径**：[`templates/screenplay_spec_b_template.md`](templates/screenplay_spec_b_template.md)。
+
+---
+
+## 五、生成执行：由用户完全自主决定
+
+**OmniDirector-H3 的工程边界是交付完美适配 H3 的高标准提示词。**
+
+提示词编译完成后，您可以根据自身团队的软硬件条件，自由选择执行环境：
+1. **途径 1：MiniMax 官方 Web 创作端**
+   * 直接复制通过审计的 15 秒提示词块，粘贴至 MiniMax 官方网页创作平台进行单条或批量出片。
+2. **途径 2：MiniMax 官方开放平台 API**
+   * 将提示词包导入您自己的企业自动化工作流或 Python 脚本，直连 MiniMax 官方 REST API。
+3. **途径 3：GPU 云端 / 本地 ComfyUI 节点**
+   * 在 AutoDL、RunPod 或本地算力服务器中部署 ComfyUI，使用对应的 MiniMax H3 节点批量生成。
+4. **途径 4：通宵无人值守批处理参考工具（选配）**
+   * 仓库在 `tools/run_overnight_batch.py` 中附带了一套完整的通宵特惠定时批处理参考脚本，支持 00:01:00 唤醒与 `batch_progress.json` 断点恢复，供有自动化批处理需求的高级用户直接调用。
+
+---
+
+## 六、5分钟快速操作指南
+
 ```bash
+# 1. 克隆仓库
 git clone https://github.com/egguy886/OmniDirector-H3.git
 cd OmniDirector-H3
 chmod +x tools/*.py tools/*.sh
-```
 
-### 步骤 2：对提示词执行严格审计（确保 0 语法错误）
-在将提示词提交给模型前，使用审计工具排除任何未闭合的 `<d>` 标签或违禁模块：
-```bash
-python3 tools/audit_h3_prompts.py --input examples/E01_h3_prompts_sample.md
-```
-
-### 步骤 3：一键将剧本编译为 H3 多模态分段脚手架
-```bash
+# 2. 编译剧本为 H3 提示词脚手架
 python3 tools/compile_screenplay_to_h3.py \
-  --input templates/screenplay_spec_b_template.md \
+  --input templates/screenplay_spec_a_domestic_template.md \
   --output my_episode_prompts.md
-```
 
-### 步骤 4：启动通宵无人值守批处理引擎
-在系统环境变量中配置您的 API 密钥，然后启动防休眠通宵守护进程：
-```bash
-export AUTODL_API_KEY="您的_API_KEY"
+# 3. 运行确定性语法审计（实测 0 语法与标签错误）
+python3 tools/audit_h3_prompts.py --input examples/E01_h3_prompts_sample.md
 
-# macOS 用户使用 caffeinate 防休眠锁，等待午夜 00:01 自动唤醒执行：
-caffeinate -d -i -m -u python3 tools/run_overnight_batch.py
-
-# 也可以进行单集即刻测试或模拟运行：
-python3 tools/run_overnight_batch.py --dry-run
+# 4. 运行 Blender 3D 轴线空间预演（可选）
+blender --background --python tools/blender_proxy_previz.py -- --episode E01 --render
 ```
 
 ---
 
-## 五、生态与开源许可
-
-本项目基于 **MIT License** 完全开源。欢迎各影视制作团队、AI 短剧工作室、独立导演以及海外短剧发行方交流使用并提交 Pull Request！
+## 七、开源许可证
+本项目基于 **MIT License** 完全开源。
